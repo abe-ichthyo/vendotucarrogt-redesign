@@ -3,330 +3,264 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vendo Tu Carro | Importación y venta de vehículos en Guatemala</title>
-  <meta name="description" content="Vendo Tu Carro ofrece una experiencia más premium para importar vehículos desde Estados Unidos a Guatemala y vender tu carro con acompañamiento profesional." />
+  <title>Curso de Importación de Vehículos | Vendo Tu Carro GT</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://db.onlinewebfonts.com/c/25cb6845cb99afb2f536ee7861d32413?family=Volvo+Novum+Regular');
 
     :root {
       color-scheme: light;
-      --canvas: #f5f3ef;
+      --bg: #f3f0ea;
       --paper: #fbfaf7;
-      --surface: #ffffff;
-      --line: rgba(17, 19, 21, 0.1);
-      --ink: #111315;
-      --muted: #5d636b;
-      --soft: #7f878f;
-      --accent: #9a7a55;
-      --forest: #1a2c29;
-      --night: #101214;
+      --card: rgba(255, 255, 255, 0.84);
+      --line: rgba(17, 24, 39, 0.1);
+      --ink: #111827;
+      --muted: #5f6772;
+      --accent: #1d4ed8;
+      --deep: #0f172a;
+      --sand: #e9e2d8;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: linear-gradient(180deg, #f7f5f1 0%, var(--bg) 100%);
       color: var(--ink);
     }
-
     img { display: block; max-width: 100%; }
-
-    .eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+    .volvo { font-family: "Volvo Novum Regular", Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.04em; }
+    .shell { width: min(100%, 1180px); margin-inline: auto; padding-inline: 1rem; }
+    .glass {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
     }
-
-    .volvo-headline {
-      font-family: "Volvo Novum Regular", Inter, ui-sans-serif, system-ui, sans-serif;
-      font-weight: 400;
-      letter-spacing: -0.05em;
-    }
-
-    .section-shell {
-      width: min(100%, 1280px);
-      margin-inline: auto;
-      padding-inline: 1.25rem;
-    }
-
-    .hero-stage {
+    .hero {
       position: relative;
       overflow: hidden;
-      border-radius: 0 0 2rem 2rem;
       background:
-        linear-gradient(180deg, rgba(7, 8, 10, 0.18) 0%, rgba(7, 8, 10, 0.48) 58%, rgba(7, 8, 10, 0.72) 100%),
-        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=80') center/cover;
-      min-height: 100svh;
+        linear-gradient(180deg, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.68)),
+        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80') center/cover;
     }
-
-    .hero-stage::after {
+    .hero::after {
       content: "";
       position: absolute;
       inset: auto 0 0 0;
-      height: 12rem;
-      background: linear-gradient(180deg, rgba(245, 243, 239, 0) 0%, rgba(245, 243, 239, 0.96) 100%);
-      pointer-events: none;
+      height: 7rem;
+      background: linear-gradient(180deg, rgba(243, 240, 234, 0) 0%, rgba(243, 240, 234, 1) 100%);
     }
-
-    .hero-panel {
-      backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-    }
-
-    .image-tall {
-      min-height: 21rem;
-      background:
-        linear-gradient(180deg, rgba(17, 19, 21, 0.08), rgba(17, 19, 21, 0.32)),
-        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1400&q=80') center/cover;
-    }
-
-    .image-wide {
-      min-height: 24rem;
-      background:
-        linear-gradient(180deg, rgba(17, 19, 21, 0.12), rgba(17, 19, 21, 0.34)),
-        url('https://images.unsplash.com/photo-1549399542-7e82138f89f5?auto=format&fit=crop&w=1600&q=80') center/cover;
-    }
-
-    .surface-card {
-      background: rgba(255, 255, 255, 0.82);
+    .section-card {
+      background: var(--card);
       border: 1px solid var(--line);
-      box-shadow: 0 18px 40px rgba(17, 19, 21, 0.05);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
     }
-
-    .price-card {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
+    .media-panel {
+      min-height: 18rem;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.42)),
+        url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
-
+    .media-panel-alt {
+      min-height: 18rem;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.42)),
+        url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
     @media (min-width: 640px) {
-      .section-shell { padding-inline: 1.5rem; }
-      .hero-stage { border-radius: 0 0 2.5rem 2.5rem; }
+      .shell { padding-inline: 1.5rem; }
+      .hero::after { height: 9rem; }
     }
-
     @media (min-width: 1024px) {
-      .section-shell { padding-inline: 2rem; }
-      .hero-stage { min-height: 56rem; }
-      .hero-stage::after { height: 14rem; }
-      .image-tall { min-height: 34rem; }
-      .image-wide { min-height: 34rem; }
+      .shell { padding-inline: 2rem; }
+      .media-panel, .media-panel-alt { min-height: 28rem; }
     }
   </style>
 </head>
 <body>
-  <div class="min-h-screen bg-[var(--paper)]">
-    <header class="hero-stage text-white">
-      <div class="section-shell flex min-h-[100svh] flex-col pb-8 pt-5 sm:pb-10 sm:pt-6 lg:min-h-[56rem] lg:pb-14">
-        <nav class="flex items-center justify-between gap-4">
-          <div class="flex min-w-0 items-center gap-3">
-            <img src="./logo.png" alt="Logo Vendo Tu Carro" class="h-12 w-12 rounded-2xl border border-white/15 bg-white/95 object-contain p-1.5 shadow-lg shadow-black/20 sm:h-14 sm:w-14" />
-            <div class="min-w-0">
-              <p class="truncate text-sm font-semibold tracking-[0.18em] text-white sm:text-[15px]">VENDO TU CARRO</p>
-              <p class="truncate text-[11px] uppercase tracking-[0.24em] text-white/68">Importación y venta de vehículos</p>
-            </div>
+  <header class="hero text-white">
+    <div class="shell flex min-h-[100svh] flex-col pb-8 pt-5 sm:pb-10 sm:pt-6 lg:min-h-[54rem] lg:pb-16">
+      <nav class="flex items-center justify-between gap-3">
+        <div class="flex min-w-0 items-center gap-3">
+          <img src="./logo.png" alt="Logo Vendo Tu Carro GT" class="h-12 w-12 rounded-2xl border border-white/20 bg-white/95 object-contain p-1.5 shadow-lg shadow-black/20 sm:h-14 sm:w-14" />
+          <div class="min-w-0">
+            <p class="truncate text-sm font-semibold tracking-[0.18em] text-white">VENDO TU CARRO GT</p>
+            <p class="truncate text-[11px] uppercase tracking-[0.2em] text-white/70">Importación de Vehículos en Guatemala</p>
           </div>
-          <a href="https://api.whatsapp.com/send?phone=50239095480&text=Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20VTC%20Importaciones.%20%F0%9F%9A%97" class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/18 bg-white/10 px-4 text-xs font-semibold text-white transition hover:bg-white hover:text-[var(--ink)] sm:px-5 sm:text-sm">WhatsApp</a>
-        </nav>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=50239095480&amp;text=Hola!%20Quisiera%20información%20acerca%20del%20proceso%20de%20importación%20de%20vehiculos.%20🚗" class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 text-xs font-semibold text-white transition hover:bg-white hover:text-[var(--ink)] sm:text-sm">Contáctanos</a>
+      </nav>
 
-        <div class="mt-auto grid gap-8 pb-10 pt-16 lg:grid-cols-[minmax(0,1.08fr)_22rem] lg:items-end lg:gap-12 lg:pb-20 lg:pt-24">
-          <div class="max-w-4xl">
-            <p class="eyebrow text-white/68">Guatemala · EE.UU.</p>
-            <h1 class="volvo-headline mt-5 max-w-4xl text-[2.7rem] leading-[0.94] text-white sm:text-[3.8rem] lg:text-[5.35rem]">Importa o vende tu vehículo con una experiencia más clara, serena y premium.</h1>
-            <p class="mt-6 max-w-2xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8"><span class="font-semibold text-white">En Vendo Tu Carro GT somos expertos en importación de vehículos desde Estados Unidos.</span> Te ayudamos a importar, comprar y vender vehículos en Guatemala con un proceso mejor explicado y una atención más cuidada.</p>
-            <div class="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
-              <a href="https://api.whatsapp.com/send?phone=50239095480&text=Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20importaci%C3%B3n%20de%20veh%C3%ADculos.%20%F0%9F%9A%97" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--canvas)]">Contáctanos</a>
-              <a href="#curso" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-white/18 bg-white/8 px-6 text-sm font-semibold text-white transition hover:bg-white/14">Aprende a importar tú mismo</a>
-            </div>
+      <div class="relative z-10 mt-auto pb-12 pt-16 lg:pb-20">
+        <div class="max-w-4xl">
+          <h1 class="volvo mt-4 text-[2.9rem] leading-[0.92] text-white sm:text-[4rem] lg:text-[5.4rem]">Importa tu<br />vehículo desde EE.UU. a Guatemala</h1>
+          <p class="mt-6 max-w-2xl text-base leading-7 text-white/82 sm:text-lg sm:leading-8">En Vendo Tu Carro GT somos expertos en importación de vehículos desde Estados Unidos.<br />Te ayudamos a importar, comprar y vender vehículos en Guatemala.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href="https://api.whatsapp.com/send?phone=50239095480&amp;text=Hola!%20Quisiera%20información%20acerca%20del%20proceso%20de%20importación%20de%20vehiculos.%20🚗" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--sand)]">Contáctanos</a>
+            <a href="#curso_import" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 text-sm font-semibold text-white transition hover:bg-white/15">O aprende a importar tú mismo →</a>
           </div>
-
-          <aside class="hero-panel rounded-[1.8rem] p-5 sm:p-6">
-            <p class="eyebrow text-white/58">Valor diferencial</p>
-            <p class="mt-3 text-lg font-medium leading-7 text-white">Importación directamente a tu nombre desde el inicio del proceso.</p>
-            <div class="mt-6 space-y-4 border-t border-white/12 pt-6 text-sm text-white/72">
-              <div class="flex items-end justify-between gap-4">
-                <span>Experiencia</span>
-                <strong class="text-2xl font-semibold tracking-[-0.04em] text-white">15+ años</strong>
-              </div>
-              <div class="flex items-end justify-between gap-4">
-                <span>Atención</span>
-                <strong class="text-2xl font-semibold tracking-[-0.04em] text-white">1 a 1</strong>
-              </div>
-              <div class="flex items-end justify-between gap-4">
-                <span>Enfoque</span>
-                <strong class="text-right text-base font-semibold text-white">Más orden, menos fricción</strong>
-              </div>
-            </div>
-          </aside>
+          <div class="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+            <a href="#import_my_car" class="glass rounded-[1.5rem] px-5 py-4 text-left text-sm font-semibold text-white">Cotizar<br />mi vehiculo</a>
+            <a href="#curso_import" class="glass rounded-[1.5rem] px-5 py-4 text-left text-sm font-semibold text-white">Ver<br />curso</a>
+            <a href="#sell_your_car" class="glass rounded-[1.5rem] px-5 py-4 text-left text-sm font-semibold text-white">Vender<br />mi vehículo</a>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="-mt-4 sm:-mt-6 lg:-mt-8">
-      <section class="section-shell py-8 sm:py-12 lg:py-16">
-        <div class="grid gap-4 md:grid-cols-3">
-          <article class="surface-card rounded-[1.75rem] p-6 sm:p-7">
-            <p class="eyebrow text-[var(--soft)]">Importación</p>
-            <h2 class="mt-4 text-[1.7rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">Trae tu próximo vehículo desde EE.UU.</h2>
-            <p class="mt-3 text-sm leading-7 text-[var(--muted)]">Te guiamos desde la selección y compra hasta embarque, logística e importación en Guatemala.</p>
+  <main class="pb-14 sm:pb-20">
+    <section id="importacion" class="shell py-10 sm:py-14 lg:py-20">
+      <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+        <div class="lg:sticky lg:top-8 lg:self-start">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--muted)]">Proceso de importación de</p>
+          <h2 class="volvo mt-3 text-3xl leading-tight sm:text-4xl lg:text-[3.2rem]">vehiculos</h2>
+        </div>
+        <div class="space-y-4">
+          <article class="section-card rounded-[1.8rem] p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">Paso 1</p>
+            <ul class="mt-4 space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+              <li>Contrato de importación de vehículo y realizar transferencia anticipo.</li>
+              <li>El pago de subasta por compra de vehículo se paga el mismo día que se logra ganar en la subasta de Copart o lAA.</li>
+              <li>El pago se realiza directamente de la cuenta bancaria del cliente para que el vehículo ingrese a su nombre desde el inicio de nuestro proceso.</li>
+              <li>Comisión Q.2,500 = Q.0 a Q.50,000</li>
+              <li>Comisión Q.3,500 = Q.51,000 a Q.99,000</li>
+              <li>Comisión Q.5,500 = Q.100,000 a Q.150,000</li>
+              <li>Comisión Q.7,500 = Q.151,000 a @200,000</li>
+              <li>Comisión Q.10,500 = de Q201,000 en adelante o Vehículos Eléctricos</li>
+              <li>Eléctricos Embarque Precio base $.2,500</li>
+              <li>(Super Cars Q.15,500 Pregunta si el tuyo entra en esta sección).</li>
+            </ul>
           </article>
-          <article class="rounded-[1.75rem] border border-black/5 bg-[var(--canvas)] p-6 sm:p-7 shadow-[0_18px_40px_rgba(17,19,21,0.04)]">
-            <p class="eyebrow text-[var(--soft)]">Venta</p>
-            <h2 class="mt-4 text-[1.7rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">Vende tu carro con mejor presencia.</h2>
-            <p class="mt-3 text-sm leading-7 text-[var(--muted)]">Mejor presentación, mejor filtrado de interesados y un proceso comercial más cuidado.</p>
+
+          <article class="section-card rounded-[1.8rem] p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">Paso 2</p>
+            <div class="mt-4 space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+              <p>El pago de embarque es vital realizarlo el mismo día en el que se gana el vehículo, como máximo el viernes de la semana que se compra, ya que de lo contrario se estará penalizando con Q.25 diarios.</p>
+              <p>Pago por servicio de grúa:</p>
+              <ul class="space-y-3">
+                <li>De puerto Barrios o Santo Tomás a Ciudad de Guatemala costo único de Q.850 para Hatchbacks, Sedan o Suvs; costo único de Q.1600 para Picks ups, y costo único de Q.700 para Motos.</li>
+                <li>De puerto Quetzal a alguna almacenadora costo único de Q.1,700.</li>
+              </ul>
+            </div>
           </article>
-          <article class="surface-card rounded-[1.75rem] p-6 sm:p-7">
-            <p class="eyebrow text-[var(--soft)]">Curso</p>
-            <h2 class="mt-4 text-[1.7rem] font-semibold tracking-[-0.04em] text-[var(--ink)]">Aprende a importar por tu cuenta.</h2>
-            <p class="mt-3 text-sm leading-7 text-[var(--muted)]">Conoce subastas, contactos, trámites y oportunidades de negocio alrededor de la importación.</p>
+
+          <article class="section-card rounded-[1.8rem] p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">Paso 3</p>
+            <ul class="mt-4 space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+              <li>Reparación del vehículo si lo trabajan con nosotros (costo adicional)</li>
+              <li>No nos dedicamos a reparar vehículos a menos que lo soliciten nuestros clientes por lo que preferimos en su mayoría referirles a talleres de nuestra total confianza</li>
+            </ul>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="importacion" class="section-shell py-12 sm:py-16 lg:py-24">
-        <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-14">
-          <div class="lg:sticky lg:top-10">
-            <p class="eyebrow text-[var(--soft)]">Proceso de importación</p>
-            <h2 class="mt-4 max-w-lg text-3xl font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-4xl lg:text-[3.2rem]">Un proceso mejor explicado inspira más confianza.</h2>
-            <p class="mt-5 max-w-md text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">No se trata solo de importar un vehículo. Se trata de que el cliente sienta que trabaja con una empresa ordenada, seria y presente en cada decisión importante.</p>
-          </div>
-
-          <div class="space-y-4 sm:space-y-5">
-            <article class="surface-card rounded-[1.9rem] p-6 sm:p-8 lg:p-9">
-              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p class="eyebrow text-[var(--accent)]">Paso 1</p>
-                  <h3 class="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">Selección, contrato y compra</h3>
-                </div>
-                <span class="text-sm text-[var(--soft)]">Inicio claro</span>
-              </div>
-              <p class="mt-4 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Se define el vehículo, se firma el servicio y el pago de subasta lo hace el cliente para que el carro quede a su nombre desde el principio.</p>
-            </article>
-            <article class="rounded-[1.9rem] border border-black/5 bg-[var(--canvas)] p-6 sm:p-8 lg:p-9 shadow-[0_18px_40px_rgba(17,19,21,0.04)]">
-              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p class="eyebrow text-[var(--accent)]">Paso 2</p>
-                  <h3 class="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">Embarque y logística</h3>
-                </div>
-                <span class="text-sm text-[var(--soft)]">Seguimiento sereno</span>
-              </div>
-              <p class="mt-4 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Coordinamos embarque, tiempos críticos y transporte interno con una mejor explicación de costos, tiempos y decisiones.</p>
-            </article>
-            <article class="surface-card rounded-[1.9rem] p-6 sm:p-8 lg:p-9">
-              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p class="eyebrow text-[var(--accent)]">Paso 3</p>
-                  <h3 class="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">Entrega o reparación</h3>
-                </div>
-                <span class="text-sm text-[var(--soft)]">Acompañamiento final</span>
-              </div>
-              <p class="mt-4 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Si el cliente lo necesita, también orientamos la fase de reparación con talleres de confianza y soporte adicional.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-shell py-4 sm:py-6 lg:py-8">
-        <div class="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-          <div class="overflow-hidden rounded-[2rem] bg-[var(--night)] text-white shadow-[0_28px_80px_rgba(17,19,21,0.16)]">
-            <div class="image-wide"></div>
-            <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_14rem] lg:items-end lg:p-10">
+    <section id="import_my_car" class="shell py-4 sm:py-6 lg:py-10">
+      <div class="overflow-hidden rounded-[2rem] bg-[var(--deep)] text-white shadow-[0_28px_80px_rgba(15,23,42,0.18)]">
+        <div class="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+          <div class="media-panel"></div>
+          <div class="p-6 sm:p-8 lg:p-10">
+            <h2 class="volvo text-3xl sm:text-4xl">Cotiza ahora tu próximo vehículo</h2>
+            <div class="mt-8 grid gap-6 sm:grid-cols-2">
               <div>
-                <p class="eyebrow text-white/55">Experiencia editorial</p>
-                <h2 class="mt-4 max-w-lg text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Una marca más actual transmite mejor el valor del servicio.</h2>
+                <div class="grid grid-cols-2 gap-3 text-sm font-medium">
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Sedán</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">SUV</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Pickup</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Otro</div>
+                </div>
               </div>
-              <p class="text-sm leading-7 text-white/68">Más imagen, mejor jerarquía visual y una narrativa más pausada para vender confianza antes de vender un carro.</p>
+              <div>
+                <div class="grid grid-cols-2 gap-3 text-sm font-medium">
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Toyota</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Mazda</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Honda</div>
+                  <div class="rounded-2xl border border-white/15 bg-white/5 px-4 py-4">Otro</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="grid gap-5">
-            <article class="surface-card rounded-[1.85rem] p-6 sm:p-7 lg:p-8">
-              <p class="eyebrow text-[var(--soft)]">Atención</p>
-              <h3 class="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">Menos ruido, más claridad.</h3>
-              <p class="mt-3 text-sm leading-7 text-[var(--muted)]">Presentamos la información esencial con mejor criterio para que la decisión se sienta más simple.</p>
-            </article>
-            <article class="rounded-[1.85rem] border border-black/5 bg-[var(--canvas)] p-6 sm:p-7 lg:p-8 shadow-[0_18px_40px_rgba(17,19,21,0.04)]">
-              <p class="eyebrow text-[var(--soft)]">Confianza</p>
-              <h3 class="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--ink)]">Procesos que se ven tan sólidos como su ejecución.</h3>
-              <p class="mt-3 text-sm leading-7 text-[var(--muted)]">La forma en que se cuenta el servicio también comunica seriedad, orden y nivel de detalle.</p>
-            </article>
+            <a href="https://api.whatsapp.com/send?phone=50239095480&amp;text=Hola!%20Quisiera%20información%20acerca%20del%20proceso%20de%20importación%20de%20vehiculos.%20🚗" class="mt-8 inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--sand)]">Enviar por WhatsApp</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section-shell py-12 sm:py-16 lg:py-24">
-        <div class="overflow-hidden rounded-[2.2rem] bg-[var(--night)] text-white shadow-[0_32px_90px_rgba(17,19,21,0.18)]">
-          <div class="grid gap-0 lg:grid-cols-[0.94fr_1.06fr]">
-            <div class="p-6 sm:p-8 lg:p-12">
-              <p class="eyebrow text-white/50">Tarifario</p>
-              <h2 class="mt-4 max-w-md text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl lg:text-[3rem]">Precios más claros y mejor organizados.</h2>
-              <p class="mt-5 max-w-lg text-sm leading-7 text-white/68 sm:text-base sm:leading-8">Una estructura simple y transparente ayuda a tomar decisiones con confianza desde el primer contacto.</p>
-              <a href="https://api.whatsapp.com/send?phone=50239095480&text=Hola!%20Quisiera%20una%20cotizaci%C3%B3n%20para%20importar%20un%20veh%C3%ADculo.%20%F0%9F%9A%97" class="mt-8 inline-flex min-h-[54px] items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-[var(--ink)] transition hover:bg-[var(--canvas)]">Solicitar cotización</a>
-            </div>
-            <div class="grid gap-px bg-white/10 p-px sm:grid-cols-2 xl:grid-cols-3">
-              <div class="price-card p-5 sm:p-6"><p class="text-sm text-white/52">Q0 – Q50,000</p><p class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">Q2,500</p></div>
-              <div class="price-card p-5 sm:p-6"><p class="text-sm text-white/52">Q51,000 – Q99,000</p><p class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">Q3,500</p></div>
-              <div class="price-card p-5 sm:p-6"><p class="text-sm text-white/52">Q100,000 – Q150,000</p><p class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">Q5,500</p></div>
-              <div class="price-card p-5 sm:p-6"><p class="text-sm text-white/52">Q151,000 – Q200,000</p><p class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">Q7,500</p></div>
-              <div class="price-card p-5 sm:p-6"><p class="text-sm text-white/52">Q201,000 en adelante</p><p class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">Q10,500</p></div>
-              <div class="bg-[var(--forest)] p-5 sm:p-6"><p class="text-sm text-white/52">Eléctricos / Super Cars</p><p class="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Casos especiales</p><p class="mt-3 text-sm leading-7 text-white/68">Embarque base para eléctricos desde $2,500. Super Cars desde Q15,500.</p></div>
-            </div>
+    <section class="shell py-12 sm:py-16 lg:py-20">
+      <div class="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
+        <div class="section-card rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <h2 class="volvo text-3xl sm:text-4xl">¿Por qué elegirnos?</h2>
+          <p class="mt-5 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Somos tu mejor opción para la importación de vehículos en Guatemala.</p>
+          <div class="mt-8 space-y-4 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+            <p>Seguridad: el vehículo se importa directamente a tu nombre.</p>
+            <p>Transparencia: seguimiento en tiempo real del proceso.</p>
+            <p>Experiencia: más de 15 años en el negocio.</p>
           </div>
         </div>
-      </section>
+        <div class="overflow-hidden rounded-[2rem] bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)]">
+          <div class="media-panel-alt"></div>
+        </div>
+      </div>
+    </section>
 
-      <section id="venta" class="section-shell py-12 sm:py-16 lg:py-24">
-        <div class="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-14">
-          <div class="overflow-hidden rounded-[2rem] bg-white shadow-[0_22px_60px_rgba(17,19,21,0.08)]">
-            <div class="image-tall"></div>
+    <section id="curso_import" class="shell py-2 sm:py-4 lg:py-8">
+      <div class="section-card rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <h2 class="volvo text-3xl sm:text-4xl">Curso deImportación<br />de Vehículos</h2>
+        <div class="mt-6 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <p class="text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Aprende paso a paso cómo importar tu propio vehículo desde EE.UU. y conviértelo en una fuente de ingresos. Accede a todo lo que necesitas para comenzar, incluso si no tienes experiencia previa.</p>
           </div>
           <div>
-            <p class="eyebrow text-[var(--soft)]">Venta de tu carro</p>
-            <h2 class="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-4xl lg:text-[3rem]">Más que publicar un carro, una experiencia mejor presentada.</h2>
-            <p class="mt-5 max-w-xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Nos interesa que la marca se vea más actual, más confiable y más alineada a un servicio premium.</p>
-            <div class="mt-8 grid gap-4 sm:grid-cols-2">
-              <article class="surface-card rounded-[1.55rem] p-5 sm:p-6"><h3 class="text-lg font-semibold tracking-[-0.03em] text-[var(--ink)]">Fotos y detalles correctos</h3><p class="mt-2 text-sm leading-7 text-[var(--muted)]">Pedimos material más claro y más vendible para mejorar la presentación del vehículo.</p></article>
-              <article class="rounded-[1.55rem] border border-black/5 bg-[var(--canvas)] p-5 sm:p-6 shadow-[0_18px_40px_rgba(17,19,21,0.04)]"><h3 class="text-lg font-semibold tracking-[-0.03em] text-[var(--ink)]">Valoración realista</h3><p class="mt-2 text-sm leading-7 text-[var(--muted)]">Se acuerda un precio competitivo sin sobrevalorar el carro y quemar la oportunidad.</p></article>
-              <article class="rounded-[1.55rem] border border-black/5 bg-[var(--canvas)] p-5 sm:p-6 shadow-[0_18px_40px_rgba(17,19,21,0.04)]"><h3 class="text-lg font-semibold tracking-[-0.03em] text-[var(--ink)]">Promoción en redes</h3><p class="mt-2 text-sm leading-7 text-[var(--muted)]">Publicación en redes y atención a interesados con mejor seguimiento comercial.</p></article>
-              <article class="surface-card rounded-[1.55rem] p-5 sm:p-6"><h3 class="text-lg font-semibold tracking-[-0.03em] text-[var(--ink)]">Citas con más orden</h3><p class="mt-2 text-sm leading-7 text-[var(--muted)]">Coordinación de reuniones en horarios y lugares seguros con acompañamiento más profesional.</p></article>
-            </div>
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">¿Qué incluye el curso?</p>
+            <ul class="mt-4 space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+              <li>Acceso a plataformas de subastas como Copart e IAAI.</li>
+              <li>Contactos de proveedores confiables y grúas</li>
+              <li>Asesoría personalizada durante todo el proceso</li>
+              <li>Guías legales y aduanales paso a paso</li>
+              <li>Casos reales y ejemplos prácticos</li>
+              <li>Posibilidad de generar ingresos con reventa de vehículos</li>
+            </ul>
+            <a href="https://api.whatsapp.com/send?phone=50239095480&amp;text=Hola!%20me%20gustaría%20información%20sobre%20el%20curso%20de%20importación.%20📚" class="mt-8 inline-flex min-h-[54px] items-center justify-center rounded-full bg-[var(--deep)] px-6 text-sm font-semibold text-white transition hover:bg-[var(--accent)]">COMPRAR CURSO AHORA</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="curso" class="section-shell py-12 sm:py-16 lg:py-24">
-        <div class="rounded-[2.1rem] border border-black/5 bg-white px-6 py-8 shadow-[0_22px_60px_rgba(17,19,21,0.06)] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-10">
-            <div>
-              <p class="eyebrow text-[var(--soft)]">Curso de importación</p>
-              <h2 class="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-4xl lg:text-[3rem]">Aprende a importar por tu cuenta y conviértelo en una oportunidad real.</h2>
-              <p class="mt-5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Acceso a plataformas, contactos, guías legales y acompañamiento para empezar con mejor base.</p>
-            </div>
-            <a href="https://api.whatsapp.com/send?phone=50239095480&text=Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20curso%20de%20importaci%C3%B3n.%20%F0%9F%93%9A" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[var(--ink)] px-6 text-sm font-semibold text-white transition hover:bg-[var(--forest)]">Comprar curso</a>
-          </div>
+    <section id="sell_your_car" class="shell py-12 sm:py-16 lg:py-20">
+      <div class="grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
+        <div class="overflow-hidden rounded-[2rem] bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)]">
+          <div class="media-panel"></div>
         </div>
-      </section>
+        <div class="section-card rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <h2 class="volvo text-3xl sm:text-4xl">¿Quieres vender tu carro?</h2>
+          <div class="mt-6 space-y-5 text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">
+            <p>Siguenos en las cuentas de facebook, instagram y tiktok como @vendotucarrogt</p>
+            <p>Envianos fotos claras de tu carro como las que ves que publicamos por facebook o Instagram: de frente, ambos lados, parte trasera, interior que se vea el tablero completo y de motor.( nosotros borramos las placas si quieres que no se vean)</p>
+            <p>Especificaciones de tu carro: línea de tu carro, año de tu carro, motor que tiene tu carro, transmision mecánica automatica o tiptronic, aire acondicionado, extras.</p>
+            <p>Pactamos el valor de tu carro (no sobrevalorados) y del valor final de la venta cobramos nuestra comisión dependiendo precio establecido en el tarifario.</p>
+            <p>Lo subimos a nuestras redes sociales y nosotros nos encargamos de hacer publicidad, concretamos citas para que llegues o te visiten a lugares seguros para reunirte con nuestro asesor de ventas y los posibles clientes potenciales.Para las citas siempre nos ponemos de acuerdo con nuestros clientes para que les quede bien el día, hora y no perder ventas.</p>
+            <p>Pago en bancos</p>
+          </div>
+          <a href="https://api.whatsapp.com/send?phone=50239095480&amp;text=Hola!%20me%20gustaría%20más%20información%20para%20vender%20mi%20vehículo.%20🚗" class="mt-8 inline-flex min-h-[54px] items-center justify-center rounded-full bg-[var(--deep)] px-6 text-sm font-semibold text-white transition hover:bg-[var(--accent)]">Vender Ahora</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      <section class="section-shell pb-14 sm:pb-16 lg:pb-24">
-        <div class="rounded-[2.2rem] bg-[var(--canvas)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p class="eyebrow text-[var(--soft)]">Contacto</p>
-              <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.05em] text-[var(--ink)] sm:text-4xl lg:text-[3rem]">Hablemos de tu próximo vehículo.</h2>
-              <p class="mt-5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8">Si querés importar, vender o aprender el proceso, podemos empezar por WhatsApp.</p>
-            </div>
-            <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href="https://api.whatsapp.com/send?phone=50239095480&text=Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.%20%F0%9F%9A%97" class="inline-flex min-h-[54px] items-center justify-center rounded-full bg-[var(--ink)] px-6 text-sm font-semibold text-white transition hover:bg-[var(--forest)]">Escribir por WhatsApp</a>
-              <a href="https://www.instagram.com/vendotucarrogt/" class="inline-flex min-h-[54px] items-center justify-center rounded-full border border-black/10 bg-white/70 px-6 text-sm font-semibold text-[var(--ink)] transition hover:bg-white">Instagram</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+  <footer class="border-t border-black/5 bg-white/60 py-10">
+    <div class="shell">
+      <p class="text-sm leading-7 text-[var(--muted)]">Siguenos en @vendotucarrogt</p>
+      <div class="mt-4 flex flex-col gap-2 text-sm text-[var(--ink)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+        <a href="#import_my_car">Cotizar Vehículo</a>
+        <span class="hidden text-[var(--muted)] sm:inline">|</span>
+        <a href="#curso_import">Curso de Importación</a>
+        <span class="hidden text-[var(--muted)] sm:inline">|</span>
+        <a href="#sell_your_car">Vender mi Carro</a>
+      </div>
+      <p class="mt-5 text-sm leading-7 text-[var(--muted)]">© 2025 Vendo Tu Carro GT | Importación de Vehículos en Guatemala | <a href="https://wa.me/50239095480" class="text-[var(--ink)]">WhatsApp: 3909 5480</a></p>
+    </div>
+  </footer>
 </body>
 </html>
